@@ -1,0 +1,7 @@
+<div *ngIf="product" class="col-md-8 offset-md-2">
+    <h3>{{product.proName | uppercase}}</h3>
+    <img class="img-thumbnail" [src]="product.imageUrl" [alt]="product.imageUrl">
+    <p>{{product.proDetails | myUppercase}}</p>
+    <p>{{product.proDescription | myUppercase}}</p>
+    <p>{{product.placing | myUppercase}}</p>
+     </div>

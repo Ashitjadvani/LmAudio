@@ -1,0 +1,73 @@
+<h2>Add Customer</h2>
+<hr>
+<form [formGroup]="customerForm" (ngSubmit)="addCustomer(customerForm)">
+
+  <input type="hidden" class="form-control" formControlName="_id" >
+
+  <div class="form-group">
+    <label for="cstName">Customer Name</label>
+    <input type="text"
+      [ngClass]="{'is-invalid':customerForm.get('cstName').touched && customerForm.get('cstName').invalid }"
+      id="cstName" class="form-control" formControlName="cstName" name="cstName">
+    <span class="invalid-feedback">Customer name can't be blank.</span>
+  </div>
+
+  <div class="form-group">
+    <label for="cstContact">Contact</label>
+    <input type="text"
+      [ngClass]="{'is-invalid':customerForm.get('cstContact').touched && customerForm.get('cstContact').invalid }"
+      id="cstContact" class="form-control" formControlName="cstContact" name="cstContact">
+      <span class="invalid-feedback">
+        <span *ngIf="customerForm.get('cstContact').hasError('required')">Contact can't be blank.</span>
+        <span *ngIf="customerForm.get('cstContact').hasError('pattern')">Number only.</span>
+        <span *ngIf="customerForm.get('cstContact').hasError('minlength')">Min 10 digit</span>
+        <span *ngIf="customerForm.get('cstContact').hasError('maxlength')">Max 10 digit</span>
+      </span>
+  </div>
+  
+
+  <div class="form-group">
+    <label for="cstEmail">Email</label>
+    <input type="cstEmail"
+      [ngClass]="{ 'is-invalid': customerForm.get('cstEmail').touched && customerForm.get('cstEmail').invalid }"
+      class="form-control" id="cstEmail" formControlName="cstEmail">
+    <span class="invalid-feedback">
+      <span *ngIf="customerForm.get('cstEmail').hasError('required')">Email can't be blank.</span>
+      <span *ngIf="customerForm.get('cstEmail').hasError('email')">Email must be valid.</span>
+    </span>
+  </div>
+
+  <div class="form-group">
+    <label for="cstAddress">Address</label>
+    <textarea
+      [ngClass]="{'is-invalid':customerForm.get('cstAddress').touched && customerForm.get('cstAddress').invalid }"
+      class="form-control" id="cstAddress" rows="3" name="cstAddress" formControlName="cstAddress"></textarea>
+      <span class="invalid-feedback">Address can't be blank.</span>
+  </div>
+  <div class="form-group">
+    <label for="refName">Refrance</label>
+    <input type="text"
+      [ngClass]="{'is-invalid':customerForm.get('refName').touched && customerForm.get('refName').invalid }"
+      id="refName" class="form-control" formControlName="refName" name="refName">
+      <span class="invalid-feedback">Refrance can't be blank.</span>
+  </div>
+
+ 
+
+  <div class="form-group">
+    <label for="refContact">Refrance Contact</label>
+    <input type="text"
+      [ngClass]="{'is-invalid':customerForm.get('refContact').touched && customerForm.get('refContact').invalid }"
+      id="refContact" class="form-control" formControlName="refContact" name="refContact">
+      <span class="invalid-feedback">
+        <span *ngIf="customerForm.get('refContact').hasError('required')">Contact can't be blank.</span>
+        <span *ngIf="customerForm.get('refContact').hasError('pattern')">Number only.</span>
+        <span *ngIf="customerForm.get('refContact').hasError('minlength')">Min 10 digit</span>
+        <span *ngIf="customerForm.get('refContact').hasError('maxlength')">Max 10 digit</span>
+      </span>
+  </div>
+  <button [disabled]="customerForm.invalid" class="btn btn-primary" type="submit">Save</button>
+  <button  class="btn btn-primary ml-2 " type="reset">Reset</button>
+  <button type="button" class="btn btn-link" routerLink="/product/products/customer/list" routerLinkActive="router-link-active" >Cancle</button>
+  
+</form>

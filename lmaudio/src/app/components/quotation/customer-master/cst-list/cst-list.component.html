@@ -1,0 +1,16 @@
+
+<h1>Customer List</h1>
+<div *ngIf="customers.length === 0; else customerList" class="alert alert-info">No Customer to Display.</div>
+
+<ng-template #customerList>
+<div class="row">
+  <div class="col ">
+    <table class="table">
+         <tbody *ngFor="let customers of customers">
+        <app-cst-item [customers]="customers"></app-cst-item>
+      </tbody>
+    </table>
+  </div>
+</div>
+</ng-template>
+<a class="btn btn-primary addPost" style="z-index:1" routerLink="/product/products/customer">+</a>

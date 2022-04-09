@@ -1,0 +1,15 @@
+<h1>Quot List</h1>
+<div *ngIf="quot.length===0; else quotList" class="alert alert-info">No Quotation to display</div>
+
+<ng-template #quotList>
+    <div class="row">
+        <div class="co">
+            <table class="table">
+                <tbody *ngFor = "let quot of quot">
+                    <app-quot-item [quot]="quot"></app-quot-item>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</ng-template>
+<a class="btn btn-primary addPost" style="z-index:1" routerLink="/product/products/qoutation">+</a>

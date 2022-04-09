@@ -1,0 +1,14 @@
+<!-- {{products.proName}} <button (click)="remove()" class="btn btn btn-danger btn-link btn-sm">X</button>
+<a [routerLink]="['products/detail', products.id]">
+  <img appHighlight="black" class="img-thumbnail" src="{{products.imageUrl}}" alt="">
+</a> -->
+<!-- <a style="text-decoration: none; color: rgb(185, 180, 180);" [routerLink]="['products/detail', products.id]"> -->
+<div class="card border" style="width: 15rem;" appHighlight="black">
+  <img class="card-img-top" src="{{products.imageUrl}}" alt="{{products.proName}}">
+  <div class="card-body">
+    <h5 class="card-title">{{products.proName}}</h5>
+    <p class="card-text">{{products.proDescription}}</p>
+    <a (click)="remove()" class="btn btn-danger">Delete</a>
+    <a (click)="update(products.id)"  class="btn btn-primary ml-2" >Edit</a>
+  </div>
+</div>

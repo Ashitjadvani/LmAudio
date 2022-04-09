@@ -1,0 +1,57 @@
+<div class="card-body" formArrayName="productItem"
+    *ngFor="let product of quotForm.get('productItem')['controls']; let i=index;">
+    <div class="card" [formGroupName]="i">
+
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Select Product</label>
+                      <select class="form-control  form-control-sm mb-2" [id]="'proName'+i" name="proName"
+                                    formControlName="proName" (change)="selectProduct($event,i)">
+                                    <option [disabled]="true" [selected]="true" value="">--Select product--</option>
+                                    <option *ngFor="let products of products" [value]="products.id">{{products.proName
+                                        }}</option>
+                                </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="inputPassword4" class="form-label">Qty.</label>
+                    <input type="number" class="form-control form-control-sm" [id]="'proQty'+i" name="proQty text-right"
+                        formControlName="proQty">
+                </div>
+                <div class="col-md-2">
+                    <label for="inputPassword4" class="form-label">Rate</label>
+                    <input type="number" class="form-control form-control-sm" [id]="'proRate'+i" name="proRate"
+                        formControlName="proRate">
+                </div>
+                <div class="col-md-2">
+                    <label for="inputPassword4" class="form-label">Amount</label>
+                    <input class="form-control form-control-sm" [id]="'proAmount'+i" name="proAmount"
+                        style="text-align: right;" readonly formControlName="proAmount">
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control form-control-sm" [id]="'proDetails'+i" name="proDetails"
+                        formControlName="proDetails">
+                </div>
+                <div class="col-md-3">
+
+                    <input type="text" class="form-control form-control-sm" [id]="'proPlacing'+i" name="proPlacing"
+                        formControlName="proPlacing">
+                </div>
+                <div class="col-md-12">
+                    <textarea class="form-control" name="proDescription" [id]="'proDescription'+i"
+                        formControlName="proDescription" rows="3"></textarea>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" class="form-control" formControlName="proImage" hidden [id]="'proImage'+i"
+                        name="proImage">
+                    <img src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg"
+                        class="form-control img-thumbnail mw-25" alt="...">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<a type="button" class="btn btn-link text-decoration-none" (click)="addItem()">+ Add Item</a>

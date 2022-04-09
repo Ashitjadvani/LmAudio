@@ -1,0 +1,41 @@
+<tbody>
+  
+
+  <tr>
+    <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
+      {{customers.id}}
+    </td>
+
+    <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
+      {{customers.cstName}}
+    </td>
+    <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
+      {{customers.cstContact}}
+    </td>
+    <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
+      {{customers.cstEmail}}
+    </td>
+    <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
+      {{customers.cstAddress}}
+    </td>
+    <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
+      {{customers.refName}}
+    </td>
+    <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
+      {{customers.refContact}}
+    </td>
+    <td>
+      <!-- <button (click)="remove()" class="btn  btn-danger  btn-sm">Delete</button> 
+      <button (click)="remove()" class="btn  btn-primary  btn-sm">Update</button> -->
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-danger">
+          <input (click)="remove()" type="radio" name="options" id="option1" autocomplete="off"> Delete
+        </label>
+        <label class="btn btn-primary">
+          <input (click)="update(customers.id)" routerLinkActive="router-link-active"  type="radio" name="options" id="option2" autocomplete="off"> Edit
+        </label>
+      </div>
+    </td>
+
+  </tr>
+</tbody>

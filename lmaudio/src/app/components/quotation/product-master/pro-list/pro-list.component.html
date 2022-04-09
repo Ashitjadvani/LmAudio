@@ -1,0 +1,23 @@
+<h1>Product List</h1>
+<hr>
+
+<div *ngIf="products.length === 0; else productList" class="alert alert-info">No Products to Display.</div>
+
+<ng-template #productList>
+  <div class="container ">
+  <div class="row d-flex justify-content-center">
+    <div class="col align-self-center">
+      <input type="text" class="form-control" placeholder="Search...">
+    </div>
+  </div>
+
+  <!-- <button (click)="handleClick()">Click me</button> -->
+
+  <div class="row ">
+    <div *ngFor="let products of products; " class="col col-md-4 mt-2">
+      <app-pro-item [products]="products"></app-pro-item>
+    </div>
+  </div>
+</div>
+</ng-template>
+<a class="btn btn-primary addPost" style="z-index:1" routerLink="products/add">+</a>

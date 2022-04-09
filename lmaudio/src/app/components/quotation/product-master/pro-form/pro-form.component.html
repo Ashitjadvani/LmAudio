@@ -1,0 +1,61 @@
+<h2>Add Product</h2>
+<hr>
+
+<form [formGroup]="productForm" (ngSubmit)=" addProduct(productForm) ">
+ 
+  <div class="form-group">
+    <label for="proName">Product Name</label>
+    <input type="text"
+      [ngClass]="{'is-invalid':productForm.get('proName').touched && productForm.get('proName').invalid }"
+      class="form-control" id="proName" formControlName="proName">
+    <span class="invalid-feedback">Product name can't be blank.</span>
+  </div>
+
+
+  <div class="form-group">
+    <label for="proDetails">Product Details</label>
+    <input type="text"
+      [ngClass]="{'is-invalid':productForm.get('proDetails').touched && productForm.get('proDetails').invalid }"
+      id="proDetails" class="form-control" name="proDetails" formControlName="proDetails">
+    <span class="invalid-feedback">Product details can't be blank.</span>
+  </div>
+
+  <div class="form-group">
+    <label for="proDescription">Product Description</label>
+    <textarea type="text" rows="3"
+    [ngClass]="{'is-invalid':productForm.get('proDescription').touched && productForm.get('proDescription').invalid }"
+    id="proDescription" class="form-control" formControlName="proDescription" name="proDescription"></textarea>
+    <span class="invalid-feedback">Product Description can't be blank.</span>
+  </div>
+
+  <div class="form-group">
+    <label for="placing">Product Placing</label>
+    <select id="placing"
+    [ngClass]="{'is-invalid':productForm.get('placing').touched && productForm.get('placing').invalid }"
+    class="form-control" id="placing" formControlName="placing" name="placing">
+      <option selected></option>
+      <option>Tower</option>
+      <option>Wall-Mounted</option>
+      <option>Ceiling</option>
+      <option>Subwoofer</option>
+    </select>
+    <span class="invalid-feedback">Please choose placing.</span>
+  </div>
+  
+<div class="form-group">
+    <label for="imageUrl">Select Image</label>
+    <input type="file" id="imageUrl" name="imageUrl"
+    [ngClass]="{'is-invalid':productForm.get('imageUrl').touched && productForm.get('imageUrl').invalid }"
+      class="form-control" (change)="uploadImage($event)"  formControlName="imageUrl" >
+      
+      <br />
+      
+    <img *ngIf="imageUrl" [src]="imageUrl"  [alt]="imageUrl" height="200px">
+    <span class="invalid-feedback">Please Select Image.</span>
+  </div>
+
+  
+  
+  <button type="submit"class="btn btn-primary">Add Product</button>
+  <button  class="btn btn-primary ml-2 " type="reset">Reset</button>
+</form>
