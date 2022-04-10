@@ -7,7 +7,7 @@
     <label for="proName">Product Name</label>
     <input type="text"
       [ngClass]="{'is-invalid':productForm.get('proName').touched && productForm.get('proName').invalid }"
-      class="form-control" id="proName" formControlName="proName">
+      class="form-control" id="proName" formControlName="proName" (input)="handleChange()" >
     <span class="invalid-feedback">Product name can't be blank.</span>
   </div>
 
@@ -16,7 +16,7 @@
     <label for="proDetails">Product Details</label>
     <input type="text"
       [ngClass]="{'is-invalid':productForm.get('proDetails').touched && productForm.get('proDetails').invalid }"
-      id="proDetails" class="form-control" name="proDetails" formControlName="proDetails">
+      id="proDetails" class="form-control" name="proDetails" formControlName="proDetails" (input)="handleChange()">
     <span class="invalid-feedback">Product details can't be blank.</span>
   </div>
 
@@ -24,7 +24,7 @@
     <label for="proDescription">Product Description</label>
     <textarea type="text" rows="3"
     [ngClass]="{'is-invalid':productForm.get('proDescription').touched && productForm.get('proDescription').invalid }"
-    id="proDescription" class="form-control" formControlName="proDescription" name="proDescription"></textarea>
+    id="proDescription" class="form-control" formControlName="proDescription" name="proDescription" (input)="handleChange()"></textarea>
     <span class="invalid-feedback">Product Description can't be blank.</span>
   </div>
 
