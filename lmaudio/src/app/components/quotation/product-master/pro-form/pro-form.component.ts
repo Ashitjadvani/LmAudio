@@ -52,7 +52,7 @@ export class ProFormComponent implements OnInit {
     )
       
   }
-
+ 
   uploadImage(event) {
     this.productService.uploadImage(event.target.files[0])
       .subscribe((res: any) => {
@@ -63,21 +63,7 @@ export class ProFormComponent implements OnInit {
   }
   
   addProduct(productForm: FormGroup) {
-    // const data = {
-    //   ...this.productForm.value,
-    //   imageUrl: this.imageUrl
-    // }
-
-    // this.productService.addProduct(data)
-    //   .subscribe(() => {
-    //     this.messageService.setMsg({ msg: 'Product Added!', type: 'success' });
-    //     this.router.navigate(['/product'])
-        
-    //   })
-
-
-
-    const data = {
+       const data = {
       ...this.productForm.value,
       imageUrl: this.imageUrl
     }
@@ -85,7 +71,7 @@ export class ProFormComponent implements OnInit {
       .subscribe(() => {
         this.messageService.setMsg({ msg: 'Product Added!', type: 'success' });
         this.router.navigate(['/product'])
-        console.log(this.productForm.value)
+        this.formDirty =false;
       })
   }
 
@@ -101,5 +87,8 @@ export class ProFormComponent implements OnInit {
       
     })
 
+  }
+  handleChange(){
+    this.formDirty =true;
   }
 }
